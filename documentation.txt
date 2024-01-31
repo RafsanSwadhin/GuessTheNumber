@@ -1,0 +1,86 @@
+Certainly! Let's go through the provided code step by step:
+
+1. **Initialize Variables:**
+   ```python
+   number = 20
+   number_of_guesses = 1
+   play_again = True
+   ```
+   - `number`: Represents the target number that the user needs to guess (set to 20 in this case).
+   - `number_of_guesses`: Represents the current number of guesses the user has made (initialized to 1).
+   - `play_again`: A boolean flag that controls whether the game should be played again (`True` initially).
+
+2. **Outer Loop (`while play_again`):**
+   ```python
+   while play_again:
+   ```
+   - This loop ensures that the game continues as long as `play_again` is `True`.
+
+3. **Print Message and Inner Loop (`while number_of_guesses <= 5`):**
+   ```python
+   print("You can try 𝟱 times:")
+   while number_of_guesses <= 5:
+   ```
+   - This loop allows the user to make up to 5 guesses.
+   - It prints a message indicating the number of attempts allowed.
+
+4. **User Input (`guess_number`):**
+   ```python
+   guess_number = int(input("Guess the number: "))
+   ```
+   - Asks the user to input their guess and converts it to an integer.
+
+5. **Check Guess against Target Number:**
+   ```python
+   if guess_number < number:
+       print("You entered a smaller number. Please input a greater number.\n")
+   elif guess_number > number:
+       print("You entered a greater number. Please input a smaller number.\n")
+   else:
+       print("Congratulations!! you win 😇 \n")
+       # ... (Prints additional information about the win and breaks out of the inner loop)
+   ```
+   - Compares the user's guess with the target number and provides feedback.
+   - If the guess is correct, it prints a congratulations message and breaks out of the inner loop.
+
+6. **Update Number of Guesses:**
+   ```python
+   print("Number of guesses left:", 5 - number_of_guesses)
+   number_of_guesses += 1
+   ```
+   - Prints the number of guesses left and increments the `number_of_guesses` counter.
+
+7. **Check for Game Over:**
+   ```python
+   if number_of_guesses > 5:
+       print("Opps!! Game Over 😢")
+   ```
+   - Checks if the user has exhausted all 5 attempts. If yes, prints a message about the game being over.
+
+8. **Prompt to Play Again:**
+   ```python
+   play_again = input("Once again? (y/n): ").lower()
+   if play_again == "y":
+       number_of_guesses = 1
+   elif play_again == "n":
+       print("Thank you for playing! 🙂 ")
+       break
+   else:
+       print("""You should type either 'y' or 'n'. Okay, see you next time..🙂""")
+       break
+   ```
+   - Asks the user if they want to play again.
+   - If 'y', resets the `number_of_guesses` counter to 1 and continues the loop.
+   - If 'n', prints a thank you message and breaks out of the outer loop.
+   - If an invalid input is provided, prints a message and breaks out of the outer loop.
+
+9. **Alternative Ways to Handle Play Again Prompt:**
+   - The code provides alternative ways to handle the play again prompt, commented out for reference.
+
+10. **Exit Message:**
+    ```python
+    print("Thank you for playing!")
+    ```
+    - Prints a final thank you message after the game loop concludes.
+
+Overall, this code represents a simple number guessing game with a user-friendly interface and the option to play multiple times.
